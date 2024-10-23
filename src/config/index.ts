@@ -53,6 +53,11 @@ export function config(): IConfig {
       entitiesTs: ['src/**/*/*.entity.ts', 'src/**/*/*.embeddable.ts'],
       loadStrategy: LoadStrategy.JOINED,
       allowGlobalContext: true,
+      driverOptions: {
+        ...(process.env.NODE_ENV === 'production' && {
+          connection: { ssl: { rejectUnauthorized: false } },
+        }),
+      },
     }),
     throttler: [
       {
