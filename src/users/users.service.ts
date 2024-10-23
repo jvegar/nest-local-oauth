@@ -8,19 +8,19 @@ import { UserEntity } from './entities/user.entity';
 import { CommonService } from 'src/common/common.service';
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { compare, hash } from 'bcrypt';
-import ExtendedEntityRepository from 'src/common/classes/ExtendedEntityRepository';
 import { isNull, isUndefined } from 'src/common/utils/validation.util';
 import { UpdateUserDto } from './dtos/update-user.dto';
 import { ChangeEmailDto } from './dtos/change-email.dto';
 import { PasswordDto } from './dtos/password.dto';
 import { isInt } from 'class-validator';
 import { SLUG_REGEX } from 'src/common/consts/regex.const';
+import { EntityRepository } from '@mikro-orm/core';
 
 @Injectable()
 export class UsersService {
   constructor(
     @InjectRepository(UserEntity)
-    private readonly usersRepository: ExtendedEntityRepository<UserEntity>,
+    private readonly usersRepository: EntityRepository<UserEntity>,
     private readonly commonService: CommonService,
   ) {}
 

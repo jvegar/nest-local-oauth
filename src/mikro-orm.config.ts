@@ -6,7 +6,6 @@ import {
 } from '@mikro-orm/nestjs';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import ExtendedEntityRepository from './common/classes/ExtendedEntityRepository';
 
 const config: Options = defineConfig({
   clientUrl: process.env.DATABASE_URL,
@@ -14,7 +13,6 @@ const config: Options = defineConfig({
   entitiesTs: ['src/**/*/*.entity.ts', 'src/**/*.embeddable.ts'],
   loadStrategy: LoadStrategy.JOINED,
   allowGlobalContext: true,
-  entityRepository: ExtendedEntityRepository,
 });
 
 @Injectable()

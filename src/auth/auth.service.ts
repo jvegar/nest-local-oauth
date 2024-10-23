@@ -21,19 +21,19 @@ import { compare } from 'bcrypt';
 import dayjs from 'dayjs';
 import { SLUG_REGEX } from 'src/common/consts/regex.const';
 import { IRefreshToken } from 'src/jwt/interfaces/refresh-token.interface';
-import ExtendedEntityRepository from 'src/common/classes/ExtendedEntityRepository';
 import { EmailDto } from './dtos/email.dto';
 import { isNull, isUndefined } from 'src/common/utils/validation.util';
 import { ResetPasswordDto } from './dtos/reset-password.dto';
 import { IEmailToken } from 'src/jwt/interfaces/email-token.interface';
 import { ChangePasswordDto } from './dtos/change-password.dto';
 import { ConfirmEmailDto } from './dtos/confirm-email.dto';
+import { EntityRepository } from '@mikro-orm/core';
 
 @Injectable()
 export class AuthService {
   constructor(
     @InjectRepository(BlacklistedTokenEntity)
-    private readonly blacklistedTokensRepository: ExtendedEntityRepository<BlacklistedTokenEntity>,
+    private readonly blacklistedTokensRepository: EntityRepository<BlacklistedTokenEntity>,
     private readonly commonService: CommonService,
     private readonly usersService: UsersService,
     private readonly jwtService: JwtService,

@@ -53,6 +53,10 @@ export function config(): IConfig {
       entitiesTs: ['src/**/*/*.entity.ts', 'src/**/*/*.embeddable.ts'],
       loadStrategy: LoadStrategy.JOINED,
       allowGlobalContext: true,
+      driverOptions: {
+        rejectUnauthorized: true,
+        ca: 'keys/cert.pem',
+      },
     }),
     throttler: [
       {

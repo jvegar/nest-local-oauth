@@ -1,4 +1,4 @@
-import { Dictionary, EntityManager } from '@mikro-orm/core';
+import { Dictionary, EntityManager, EntityRepository } from '@mikro-orm/core';
 import {
   BadRequestException,
   ConflictException,
@@ -13,7 +13,6 @@ import { isNull, isUndefined } from './utils/validation.util';
 import slugify from 'slugify';
 import { IMessage } from './interfaces/message.interface';
 import { v4 } from 'uuid';
-import ExtendedEntityRepository from './classes/ExtendedEntityRepository';
 
 @Injectable()
 export class CommonService {
@@ -81,10 +80,10 @@ export class CommonService {
   }
 
   public async removeEntity<T extends Dictionary>(
-    repo: ExtendedEntityRepository<T>,
+    repo: EntityRepository<T>,
     entity: T,
   ): Promise<void> {
-    await this.throwInternalError(repo.removeAndFlush(entity));
+    await this.throwInternalError(this.entityManager.removeAndFlush(entity));
   }
 
   public formatName(title: string): string {
