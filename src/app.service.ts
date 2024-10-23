@@ -19,13 +19,10 @@ export class AppService implements OnModuleInit, OnModuleDestroy {
     private readonly configService: ConfigService,
   ) {
     this.loggerService = new Logger(AppService.name);
-    this.testing = this.configService.get('testing');
   }
 
   public async onModuleInit() {
-    if (this.testing) {
-      await initializeSchema(this.orm);
-    }
+    await initializeSchema(this.orm);
   }
 
   public async onModuleDestroy() {
