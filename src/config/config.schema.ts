@@ -22,4 +22,5 @@ export const validationSchema = Joi.object({
   EMAIL_PASSWORD: Joi.string().required(),
   THROTTLE_TTL: Joi.number().required(),
   THROTTLE_LIMIT: Joi.number().required(),
+  REDIS_URL: Joi.string().required(),
 });

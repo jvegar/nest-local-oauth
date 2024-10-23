@@ -7,11 +7,13 @@ import {
   OnModuleInit,
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
+import { initializeSchema } from './config/schema.init';
 
 @Injectable()
 export class AppService implements OnModuleInit, OnModuleDestroy {
   private readonly loggerService: LoggerService;
   private readonly testing: boolean;
+
   constructor(
     private readonly orm: MikroORM,
     private readonly configService: ConfigService,
@@ -22,20 +24,11 @@ export class AppService implements OnModuleInit, OnModuleDestroy {
 
   public async onModuleInit() {
     if (this.testing) {
-      this.loggerService.log('Started generating schema');
-      await this.orm.schema.dropSchema();
-      await this.orm.schema.createSchema();
-      this.loggerService.log('Finished generating schema');
+      await initializeSchema(this.orm);
     }
   }
 
   public async onModuleDestroy() {
-    if (this.testing) {
-      this.loggerService.log('Started dropping schema');
-      await this.orm.schema.dropSchema();
-      this.loggerService.log('Finished dropping schema');
-    }
-
     this.loggerService.log('Closing database connection');
     await this.orm.close();
     this.loggerService.log('Closed database connection');

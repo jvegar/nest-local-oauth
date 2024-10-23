@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import {
   ThrottlerModuleOptions,
+  ThrottlerOptions,
   ThrottlerOptionsFactory,
 } from '@nestjs/throttler';
 import { RedisOptions } from 'ioredis';
@@ -15,7 +16,9 @@ export class ThrottlerConfig implements ThrottlerOptionsFactory {
     return this.configService.get<boolean>('testing')
       ? this.configService.get<ThrottlerModuleOptions>('throttler')
       : {
-          ...this.configService.get<ThrottlerModuleOptions>('throttler'),
+          throttlers: this.configService.get<ThrottlerModuleOptions>(
+            'throttler',
+          ) as ThrottlerOptions[],
           storage: new ThrottlerStorageRedisService(
             this.configService.get<RedisOptions>('redis'),
           ),
