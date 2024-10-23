@@ -1,18 +1,24 @@
-import { IsEmail, IsString, Length, Matches } from 'class-validator';
-import { NAME_REGEX } from '../../common/consts/regex.const';
-import { PasswordsDto } from './passwords.dto';
+import { IsString, Length, MinLength } from 'class-validator';
+import { ApiProperty } from '@nestjs/swagger';
 
-export abstract class SignInDto extends PasswordsDto {
+export abstract class SignInDto {
+  @ApiProperty({
+    description: 'Username or email',
+    examples: ['john.doe', 'john.doe@gmail.com'],
+    minLength: 3,
+    maxLength: 255,
+    type: String,
+  })
   @IsString()
-  @Length(3, 100, {
-    message: 'Name has to be between 3 and 50 characters.',
-  })
-  @Matches(NAME_REGEX, {
-    message: 'Name can only contain letters, dtos, numbers and spaces.',
-  })
+  @Length(3, 255)
   public emailOrUsername!: string;
 
+  @ApiProperty({
+    description: "User's password",
+    minLength: 1,
+    type: String,
+  })
   @IsString()
-  @Length(5, 255)
+  @MinLength(1)
   public password!: string;
 }

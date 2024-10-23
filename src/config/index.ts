@@ -33,7 +33,7 @@ export function config(): IConfig {
         time: parseInt(process.env.JWT_RESET_PASSWORD_TIME, 10),
       },
       refresh: {
-        secret: process.env.JWT_REFRESH_TOKEN,
+        secret: process.env.JWT_REFRESH_SECRET,
         time: parseInt(process.env.JWT_REFRESH_TIME, 10),
       },
     },

@@ -88,6 +88,7 @@ export class AuthService {
       user,
       domain,
     );
+
     return {
       user,
       accessToken,

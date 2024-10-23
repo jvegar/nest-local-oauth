@@ -110,7 +110,6 @@ export class UsersService {
     version: number,
   ): Promise<UserEntity> {
     const user = await this.findOneByCredentials(userId, version);
-
     if (user.confirmed) {
       throw new BadRequestException('Email already confirmed');
     }

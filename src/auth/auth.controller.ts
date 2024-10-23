@@ -4,6 +4,7 @@ import {
   Get,
   HttpCode,
   HttpStatus,
+  Param,
   Patch,
   Post,
   Req,
@@ -14,7 +15,6 @@ import {
 import { AuthService } from './auth.service';
 import { UsersService } from 'src/users/users.service';
 import { ConfigService } from '@nestjs/config';
-// import { ThrottlerGuard } from '@nestjs/throttler';
 import { Request, Response } from 'express-serve-static-core';
 import { isUndefined } from 'src/common/utils/validation.util';
 import { Public } from './decorators/public.decorator';
@@ -23,7 +23,6 @@ import { SignUpDto } from './dtos/sign-up.dto';
 import { IMessage } from 'src/common/interfaces/message.interface';
 import { SignInDto } from './dtos/sign-in.dto';
 import { AuthResponseMapper } from './mappers/auth-response.mapper';
-import { ConfirmEmailDto } from './dtos/confirm-email.dto';
 import { EmailDto } from './dtos/email.dto';
 import { ResetPasswordDto } from './dtos/reset-password.dto';
 import { CurrentUser } from './decorators/current-user.decorator';
@@ -124,12 +123,14 @@ export class AuthController {
   }
 
   @Public()
-  @Post('/confirm-email')
+  @Get('/confirm-email/:token')
   public async confirmEmail(
-    @Body() confirmEmailDto: ConfirmEmailDto,
+    @Param() params: any,
     @Res() res: Response,
   ): Promise<void> {
-    const result = await this.authService.confirmEmail(confirmEmailDto);
+    const result = await this.authService.confirmEmail({
+      confirmationToken: params.token,
+    });
     this.saveRefreshCookie(res, result.refreshToken)
       .status(HttpStatus.OK)
       .json(AuthResponseMapper.map(result));
