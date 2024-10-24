@@ -13,7 +13,10 @@ async function bootstrap() {
   app.use(helmet());
   app.enableCors({
     credentials: true,
-    origin: `https://${configService.get<string>('domain')}`,
+    origin:
+      process.env.NODE_ENV === 'production'
+        ? [`https://${configService.get<string>('domain')}`]
+        : ['http://localhost:3000', 'http://localhost:4200'],
   });
   app.useGlobalPipes(
     new ValidationPipe({
