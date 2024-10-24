@@ -8,7 +8,6 @@ export interface IConfig {
   id: string;
   port: number;
   domain: string;
-  corsOrigins: string[];
   db: MikroOrmModuleOptions;
   jwt: IJwt;
   emailService: IEmailConfig;
