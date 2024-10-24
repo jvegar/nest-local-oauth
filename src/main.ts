@@ -15,7 +15,7 @@ async function bootstrap() {
     credentials: true,
     origin:
       process.env.NODE_ENV === 'production'
-        ? [`https://${configService.get<string>('domain')}`]
+        ? configService.get<string[]>('corsOrigins')
         : ['http://localhost:3000', 'http://localhost:4200'],
   });
   app.useGlobalPipes(
