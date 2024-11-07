@@ -68,5 +68,9 @@ export function config(): IConfig {
     ],
     testing,
     redis: redisUrlParser(process.env.REDIS_URL),
+    health: {
+      memoryHeapLimit: parseInt(process.env.HEALTH_MEMORY_HEAP_LIMIT, 10),
+      storageThreshold: parseFloat(process.env.HEALTH_STORAGE_THRESHOLD),
+    },
   };
 }

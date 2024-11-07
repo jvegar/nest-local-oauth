@@ -8,6 +8,7 @@ import {
 } from '@nestjs/terminus';
 import { Public } from '../auth/decorators/public.decorator';
 import { ApiTags } from '@nestjs/swagger';
+import { ConfigService } from '@nestjs/config';
 
 @ApiTags('Health')
 @Controller('health')
@@ -17,21 +18,21 @@ export class HealthController {
     private db: MikroOrmHealthIndicator,
     private memory: MemoryHealthIndicator,
     private disk: DiskHealthIndicator,
+    private configService: ConfigService,
   ) {}
 
   @Public()
   @Get()
   @HealthCheck()
   check() {
+    const config = this.configService.get('health');
+
     return this.health.check([
-      // Database health check
       () => this.db.pingCheck('database'),
-      // Memory usage check - heap must not exceed 150MB
-      () => this.memory.checkHeap('memory_heap', 150 * 1024 * 1024),
-      // Disk storage check - at least 250MB free
+      () => this.memory.checkHeap('memory_heap', config.memoryHeapLimit),
       () =>
         this.disk.checkStorage('storage', {
-          thresholdPercent: 0.75,
+          thresholdPercent: config.storageThreshold,
           path: '/',
         }),
     ]);

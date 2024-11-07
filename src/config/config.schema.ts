@@ -24,4 +24,6 @@ export const validationSchema = Joi.object({
   THROTTLE_TTL: Joi.number().required(),
   THROTTLE_LIMIT: Joi.number().required(),
   REDIS_URL: Joi.string().required(),
+  HEALTH_MEMORY_HEAP_LIMIT: Joi.number().required(),
+  HEALTH_STORAGE_THRESHOLD: Joi.number().min(0).max(1).required(),
 });

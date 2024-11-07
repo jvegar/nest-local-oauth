@@ -15,4 +15,8 @@ export interface IConfig {
   throttler: ThrottlerModuleOptions;
   testing: boolean;
   redis: RedisOptions;
+  health: {
+    memoryHeapLimit: number;
+    storageThreshold: number;
+  };
 }
