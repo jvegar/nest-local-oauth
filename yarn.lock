@@ -1069,6 +1069,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nestjs/axios@npm:^3.1.2":
+  version: 3.1.2
+  resolution: "@nestjs/axios@npm:3.1.2"
+  peerDependencies:
+    "@nestjs/common": ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0
+    axios: ^1.3.1
+    rxjs: ^6.0.0 || ^7.0.0
+  checksum: 10c0/cf81e64cb991a743a2fb88ffd285b571f2c17ec22e10e4f7e3dd16b1945f2c1101d46c51f13ac42f44a9133257f66980e041fadb7c24a9a23352dc60515d6127
+  languageName: node
+  linkType: hard
+
 "@nestjs/cache-manager@npm:^2.3.0":
   version: 2.3.0
   resolution: "@nestjs/cache-manager@npm:2.3.0"
@@ -1254,6 +1265,61 @@ __metadata:
     class-validator:
       optional: true
   checksum: 10c0/fda99b154933bb23d3b818fddf0338f74389a2bea42089de419c03203f18450faaa3840f1601b1994b312879903395ed34a98772e2decb0aab20c09910c2910c
+  languageName: node
+  linkType: hard
+
+"@nestjs/terminus@npm:^10.2.3":
+  version: 10.2.3
+  resolution: "@nestjs/terminus@npm:10.2.3"
+  dependencies:
+    boxen: "npm:5.1.2"
+    check-disk-space: "npm:3.4.0"
+  peerDependencies:
+    "@grpc/grpc-js": "*"
+    "@grpc/proto-loader": "*"
+    "@mikro-orm/core": "*"
+    "@mikro-orm/nestjs": "*"
+    "@nestjs/axios": ^1.0.0 || ^2.0.0 || ^3.0.0
+    "@nestjs/common": ^9.0.0 || ^10.0.0
+    "@nestjs/core": ^9.0.0 || ^10.0.0
+    "@nestjs/microservices": ^9.0.0 || ^10.0.0
+    "@nestjs/mongoose": ^9.0.0 || ^10.0.0
+    "@nestjs/sequelize": ^9.0.0 || ^10.0.0
+    "@nestjs/typeorm": ^9.0.0 || ^10.0.0
+    "@prisma/client": "*"
+    mongoose: "*"
+    reflect-metadata: 0.1.x || 0.2.x
+    rxjs: 7.x
+    sequelize: "*"
+    typeorm: "*"
+  peerDependenciesMeta:
+    "@grpc/grpc-js":
+      optional: true
+    "@grpc/proto-loader":
+      optional: true
+    "@mikro-orm/core":
+      optional: true
+    "@mikro-orm/nestjs":
+      optional: true
+    "@nestjs/axios":
+      optional: true
+    "@nestjs/microservices":
+      optional: true
+    "@nestjs/mongoose":
+      optional: true
+    "@nestjs/sequelize":
+      optional: true
+    "@nestjs/typeorm":
+      optional: true
+    "@prisma/client":
+      optional: true
+    mongoose:
+      optional: true
+    sequelize:
+      optional: true
+    typeorm:
+      optional: true
+  checksum: 10c0/94fd425990249297177aca573704737b89b162a6df342cf73bd2a248bf4a3cb705eb53b0d1a94c21345c37d67be57295bf2e3d9c834047424ba67c372ff11fa8
   languageName: node
   linkType: hard
 
@@ -2241,6 +2307,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ansi-align@npm:^3.0.0":
+  version: 3.0.1
+  resolution: "ansi-align@npm:3.0.1"
+  dependencies:
+    string-width: "npm:^4.1.0"
+  checksum: 10c0/ad8b755a253a1bc8234eb341e0cec68a857ab18bf97ba2bda529e86f6e30460416523e0ec58c32e5c21f0ca470d779503244892873a5895dbd0c39c788e82467
+  languageName: node
+  linkType: hard
+
 "ansi-colors@npm:4.1.3":
   version: 4.1.3
   resolution: "ansi-colors@npm:4.1.3"
@@ -2402,6 +2477,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios@npm:^1.7.7":
+  version: 1.7.7
+  resolution: "axios@npm:1.7.7"
+  dependencies:
+    follow-redirects: "npm:^1.15.6"
+    form-data: "npm:^4.0.0"
+    proxy-from-env: "npm:^1.1.0"
+  checksum: 10c0/4499efc89e86b0b49ffddc018798de05fab26e3bf57913818266be73279a6418c3ce8f9e934c7d2d707ab8c095e837fc6c90608fb7715b94d357720b5f568af7
+  languageName: node
+  linkType: hard
+
 "babel-jest@npm:^29.7.0":
   version: 29.7.0
   resolution: "babel-jest@npm:29.7.0"
@@ -2540,6 +2626,22 @@ __metadata:
     type-is: "npm:~1.6.18"
     unpipe: "npm:1.0.0"
   checksum: 10c0/0a9a93b7518f222885498dcecaad528cf010dd109b071bf471c93def4bfe30958b83e03496eb9c1ad4896db543d999bb62be1a3087294162a88cfa1b42c16310
+  languageName: node
+  linkType: hard
+
+"boxen@npm:5.1.2":
+  version: 5.1.2
+  resolution: "boxen@npm:5.1.2"
+  dependencies:
+    ansi-align: "npm:^3.0.0"
+    camelcase: "npm:^6.2.0"
+    chalk: "npm:^4.1.0"
+    cli-boxes: "npm:^2.2.1"
+    string-width: "npm:^4.2.2"
+    type-fest: "npm:^0.20.2"
+    widest-line: "npm:^3.1.0"
+    wrap-ansi: "npm:^7.0.0"
+  checksum: 10c0/71f31c2eb3dcacd5fce524ae509e0cc90421752e0bfbd0281fd3352871d106c462a0f810c85f2fdb02f3a9fab2d7a84e9718b4999384d651b76104ebe5d2c024
   languageName: node
   linkType: hard
 
@@ -2793,6 +2895,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"check-disk-space@npm:3.4.0":
+  version: 3.4.0
+  resolution: "check-disk-space@npm:3.4.0"
+  checksum: 10c0/cc39c91e1337e974fb5069c2fbd9eb92aceca6e35f3da6863a4eada58f15c1bf6970055bffed1e41c15cde1fd0ad2580bb99bef8275791ed56d69947f8657aa5
+  languageName: node
+  linkType: hard
+
 "chokidar@npm:3.6.0, chokidar@npm:^3.5.3":
   version: 3.6.0
   resolution: "chokidar@npm:3.6.0"
@@ -2862,6 +2971,13 @@ __metadata:
   version: 2.2.0
   resolution: "clean-stack@npm:2.2.0"
   checksum: 10c0/1f90262d5f6230a17e27d0c190b09d47ebe7efdd76a03b5a1127863f7b3c9aec4c3e6c8bb3a7bbf81d553d56a1fd35728f5a8ef4c63f867ac8d690109742a8c1
+  languageName: node
+  linkType: hard
+
+"cli-boxes@npm:^2.2.1":
+  version: 2.2.1
+  resolution: "cli-boxes@npm:2.2.1"
+  checksum: 10c0/6111352edbb2f62dbc7bfd58f2d534de507afed7f189f13fa894ce5a48badd94b2aa502fda28f1d7dd5f1eb456e7d4033d09a76660013ef50c7f66e7a034f050
   languageName: node
   linkType: hard
 
@@ -4083,6 +4199,16 @@ __metadata:
   version: 3.3.1
   resolution: "flatted@npm:3.3.1"
   checksum: 10c0/324166b125ee07d4ca9bcf3a5f98d915d5db4f39d711fba640a3178b959919aae1f7cfd8aabcfef5826ed8aa8a2aa14cc85b2d7d18ff638ddf4ae3df39573eaf
+  languageName: node
+  linkType: hard
+
+"follow-redirects@npm:^1.15.6":
+  version: 1.15.9
+  resolution: "follow-redirects@npm:1.15.9"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: 10c0/5829165bd112c3c0e82be6c15b1a58fa9dcfaede3b3c54697a82fe4a62dd5ae5e8222956b448d2f98e331525f05d00404aba7d696de9e761ef6e42fdc780244f
   languageName: node
   linkType: hard
 
@@ -6205,6 +6331,7 @@ __metadata:
     "@mikro-orm/core": "npm:^6.3.13"
     "@mikro-orm/nestjs": "npm:^6.0.2"
     "@mikro-orm/postgresql": "npm:^6.3.13"
+    "@nestjs/axios": "npm:^3.1.2"
     "@nestjs/cache-manager": "npm:^2.3.0"
     "@nestjs/cli": "npm:^10.0.0"
     "@nestjs/common": "npm:^10.0.0"
@@ -6213,6 +6340,7 @@ __metadata:
     "@nestjs/platform-express": "npm:^10.0.0"
     "@nestjs/schematics": "npm:^10.0.0"
     "@nestjs/swagger": "npm:^7.4.2"
+    "@nestjs/terminus": "npm:^10.2.3"
     "@nestjs/testing": "npm:^10.0.0"
     "@nestjs/throttler": "npm:^6.2.1"
     "@types/bcrypt": "npm:^5.0.2"
@@ -6228,6 +6356,7 @@ __metadata:
     "@types/uuid": "npm:^10.0.0"
     "@typescript-eslint/eslint-plugin": "npm:^8.0.0"
     "@typescript-eslint/parser": "npm:^8.0.0"
+    axios: "npm:^1.7.7"
     bcrypt: "npm:^5.1.1"
     cache-manager: "npm:^6.1.1"
     cache-manager-redis-yet: "npm:^5.1.5"
@@ -6907,6 +7036,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"proxy-from-env@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "proxy-from-env@npm:1.1.0"
+  checksum: 10c0/fe7dd8b1bdbbbea18d1459107729c3e4a2243ca870d26d34c2c1bcd3e4425b7bcc5112362df2d93cc7fb9746f6142b5e272fd1cc5c86ddf8580175186f6ad42b
+  languageName: node
+  linkType: hard
+
 "punycode@npm:^2.1.0":
   version: 2.3.1
   resolution: "punycode@npm:2.3.1"
@@ -7519,7 +7655,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"string-width-cjs@npm:string-width@^4.2.0, string-width@npm:^1.0.2 || 2 || 3 || 4, string-width@npm:^4.1.0, string-width@npm:^4.2.0, string-width@npm:^4.2.3":
+"string-width-cjs@npm:string-width@^4.2.0, string-width@npm:^1.0.2 || 2 || 3 || 4, string-width@npm:^4.0.0, string-width@npm:^4.1.0, string-width@npm:^4.2.0, string-width@npm:^4.2.2, string-width@npm:^4.2.3":
   version: 4.2.3
   resolution: "string-width@npm:4.2.3"
   dependencies:
@@ -7986,6 +8122,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"type-fest@npm:^0.20.2":
+  version: 0.20.2
+  resolution: "type-fest@npm:0.20.2"
+  checksum: 10c0/dea9df45ea1f0aaa4e2d3bed3f9a0bfe9e5b2592bddb92eb1bf06e50bcf98dbb78189668cd8bc31a0511d3fc25539b4cd5c704497e53e93e2d40ca764b10bfc3
+  languageName: node
+  linkType: hard
+
 "type-fest@npm:^0.21.3":
   version: 0.21.3
   resolution: "type-fest@npm:0.21.3"
@@ -8308,6 +8451,15 @@ __metadata:
   dependencies:
     string-width: "npm:^1.0.2 || 2 || 3 || 4"
   checksum: 10c0/1d9c2a3e36dfb09832f38e2e699c367ef190f96b82c71f809bc0822c306f5379df87bab47bed27ea99106d86447e50eb972d3c516c2f95782807a9d082fbea95
+  languageName: node
+  linkType: hard
+
+"widest-line@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "widest-line@npm:3.1.0"
+  dependencies:
+    string-width: "npm:^4.0.0"
+  checksum: 10c0/b1e623adcfb9df35350dd7fc61295d6d4a1eaa65a406ba39c4b8360045b614af95ad10e05abf704936ed022569be438c4bfa02d6d031863c4166a238c301119f
   languageName: node
   linkType: hard
 

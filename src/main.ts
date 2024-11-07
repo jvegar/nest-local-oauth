@@ -16,7 +16,7 @@ async function bootstrap() {
     origin:
       process.env.NODE_ENV === 'production'
         ? configService.get<string[]>('corsOrigins')
-        : ['http://localhost:3000', 'http://localhost:4200'],
+        : ['http://localhost:3000', 'http://localhost:5173'],
   });
   app.useGlobalPipes(
     new ValidationPipe({
@@ -29,6 +29,7 @@ async function bootstrap() {
     .setVersion('0.0.1')
     .addBearerAuth()
     .addTag('Authentication API')
+    .addTag('Health')
     .build();
   const document = SwaggerModule.createDocument(app, swaggerConfig);
   SwaggerModule.setup('api/docs', app, document);
