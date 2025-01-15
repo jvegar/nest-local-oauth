@@ -62,7 +62,7 @@ export class MailerService {
     const subject = 'Confirm your email';
     const html = this.templates.confirmation({
       name,
-      link: `http://${this.domain}/api/auth/confirm-email/${token}`,
+      link: `https://${this.domain}/api/auth/confirm-email/${token}`,
     });
     this.sendEmail(email, subject, html, 'A new confirmation email was sent.');
   }
