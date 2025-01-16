@@ -38,6 +38,7 @@ export function config(): IConfig {
         secret: process.env.JWT_REFRESH_SECRET,
         time: parseInt(process.env.JWT_REFRESH_TIME, 10),
       },
+      allowedDomains: process.env.ALLOWED_DOMAINS?.split(',') || [],
     },
     emailService: {
       host: process.env.EMAIL_HOST,

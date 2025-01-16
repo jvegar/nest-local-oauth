@@ -14,4 +14,5 @@ export interface IJwt {
   confirmation: ISingleJwt;
   resetPassword: ISingleJwt;
   refresh: ISingleJwt;
+  allowedDomains: string[];
 }

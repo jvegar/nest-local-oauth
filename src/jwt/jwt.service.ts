@@ -25,6 +25,7 @@ export class JwtService {
   private readonly jwtConfig: IJwt;
   private readonly issuer: string;
   private readonly domain: string;
+  private readonly allowedDomains: string[];
 
   constructor(
     private readonly configService: ConfigService,
@@ -33,6 +34,7 @@ export class JwtService {
     this.jwtConfig = this.configService.get<IJwt>('jwt');
     this.issuer = this.configService.get<string>('id');
     this.domain = this.configService.get<string>('domain');
+    this.allowedDomains = this.jwtConfig.allowedDomains;
   }
 
   public get accessTime(): number {
@@ -147,7 +149,9 @@ export class JwtService {
   >(token: string, tokenType: TokenTypeEnum): Promise<T> {
     const jwtOptions: jwt.VerifyOptions = {
       issuer: this.issuer,
-      audience: new RegExp(this.domain),
+      audience: new RegExp(
+        this.allowedDomains.map((d) => d.replace('.', '\\.')).join('|'),
+      ),
     };
 
     switch (tokenType) {
